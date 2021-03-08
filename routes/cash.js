@@ -11,6 +11,12 @@ router.get('/', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
   console.log(req.body)
   console.log(req.params)
+
+  // let cash = await Cash.update(req.body, {
+  //   where: req.params.id
+  // });
+  // res.json({cash});
+
   res.json({success: true});
 });
 
