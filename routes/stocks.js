@@ -6,33 +6,27 @@ const {Stocks} = require('../lib/models');
 router.post('/', async function(req, res, next) {
   console.log(req.body);
 
-  // let stock = await Stocks.create(req.body);
-  // res.json({stock});
-  
-  res.json({success:true});
+  let stock = await Stocks.create(req.body);
+  res.json({stock});
 });
 
 // UPDATE - perform PUT request on http://localhost:3000/api/v1/stocks/:id
-router.put('/:id', function(req, res, next) {
+router.put('/:id', async function(req, res, next) {
   console.log(req.body)
   console.log(req.params)
 
-  // let stock = await Stocks.update(req.body, {
-  //   where: req.params.id
-  // });
-  // res.json({stock});
-
-  res.json({success: true});
+  let stock = await Stocks.update(req.body, {
+    where: {id: req.params.id}
+  });
+  res.json({stock})
 });
 
 // DELETE - perform DELETE request on http://localhost:3000/api/v1/stocks/:id
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', async function(req, res, next) {
   console.log(req.params)
 
-  // let stock = await Stocks.destroy({where: {id: req.params.id}});
-  // res.json({stock});
-
-  res.json({success: true});
+  let stock = await Stocks.destroy({where: {id: req.params.id}});
+  res.json({stock});
 });
 
 // READ - perform GET request on http://localhost:3000/api/v1/stocks
