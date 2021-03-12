@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var portfolioRouter = require('./routes/portfolio');
 var cashRouter = require('./routes/cash');
 
-// require('../lib/seed');
+require('./lib/seed');
 
 var app = express();
 
