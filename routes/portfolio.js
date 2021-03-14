@@ -19,10 +19,10 @@ router.get('/', async function(req, res, next) {
 });
 
 // READ - perform GET request on http://localhost:3000/api/v1/portfolio/:symbol
-router.get('/:symbol', async function(req, res, next) {
+router.get('/:id', async function(req, res, next) {
   let stock = await Portfolio.findAll({
     where: {
-      symbol: req.params.symbol
+      id: req.params.id
     }
   })
   console.log(stock);
