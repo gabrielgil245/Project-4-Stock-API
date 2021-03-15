@@ -14,10 +14,10 @@ router.put('/:id', async function(req, res, next) {
   console.log(req.body)
   console.log(req.params)
 
-  let stock = await Cash.update(req.body, {
+  let currentCash = await Cash.update(req.body, {
     where: {id: req.params.id}
   });
-  res.json({stock})
+  res.json({currentCash})
 });
 
 module.exports = router;
